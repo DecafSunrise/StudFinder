@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>StudFinder — BrickLink Photo Search</title>
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+<header class="header">
+  <div class="container">
+    <h1 class="logo">StudFinder</h1>
+    <p class="tagline">Upload a photo, find it on BrickLink</p>
+  </div>
+</header>
+
+<main class="container">
+  <div class="upload-area" id="dropZone">
+    <div class="upload-content" id="uploadContent">
+      <div class="upload-icon">
+        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+          <polyline points="17 8 12 3 7 8"/>
+          <line x1="12" y1="3" x2="12" y2="15"/>
+        </svg>
+      </div>
+      <p class="upload-text">Drag &amp; drop a photo here, or <span class="upload-link">browse</span></p>
+      <p class="upload-hint">JPEG or PNG</p>
+      <input type="file" id="fileInput" accept="image/jpeg,image/png" hidden>
+    </div>
+    <div class="upload-preview" id="uploadPreview" hidden>
+      <img id="previewImage" alt="Upload preview">
+      <button class="btn-remove" id="removeBtn" title="Remove image">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+        </svg>
+      </button>
+    </div>
+    <div class="upload-status" id="uploadStatus">
+      <div class="spinner" id="spinner" hidden></div>
+      <p id="statusText"></p>
+    </div>
+  </div>
+
+  <div id="errorBanner" class="error-banner" hidden>
+    <span id="errorMessage"></span>
+    <button class="btn-retry" id="retryBtn">Retry</button>
+  </div>
+
+  <section id="resultsSection" hidden>
+    <div class="results-header">
+      <h2>Results</h2>
+      <span class="results-meta" id="resultsMeta"></span>
+    </div>
+    <div class="results-grid" id="resultsGrid">
+      <div class="skeleton-card" aria-hidden="true">
+        <div class="skeleton-img"></div>
+        <div class="skeleton-line w-60"></div>
+        <div class="skeleton-line w-40"></div>
+        <div class="skeleton-line w-50"></div>
+      </div>
+      <div class="skeleton-card" aria-hidden="true">
+        <div class="skeleton-img"></div>
+        <div class="skeleton-line w-60"></div>
+        <div class="skeleton-line w-40"></div>
+        <div class="skeleton-line w-50"></div>
+      </div>
+      <div class="skeleton-card" aria-hidden="true">
+        <div class="skeleton-img"></div>
+        <div class="skeleton-line w-60"></div>
+        <div class="skeleton-line w-40"></div>
+        <div class="skeleton-line w-50"></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <p>Powered by <a href="https://brickognize.com" target="_blank">Brickognize</a>, <a href="https://rebrickable.com" target="_blank">Rebrickable</a> &amp; <a href="https://www.bricklink.com" target="_blank">BrickLink</a></p>
+  </div>
+</footer>
+
+<script src="/app.js"></script>
+</body>
+</html>

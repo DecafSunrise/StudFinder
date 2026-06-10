@@ -1,0 +1,48 @@
+site_name: StudFinder
+site_description: Upload a photo and find matching LEGO parts on BrickLink
+site_url: https://danvargic.github.io/StudFinder
+repo_url: https://github.com/danvargic/StudFinder
+repo_name: danvargic/StudFinder
+
+theme:
+  name: material
+  palette:
+    - scheme: slate
+      primary: indigo
+      accent: light-blue
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to light mode
+    - scheme: default
+      primary: indigo
+      accent: light-blue
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+  features:
+    - navigation.instant
+    - navigation.tracking
+    - navigation.indexes
+    - content.code.copy
+    - content.code.annotate
+
+markdown_extensions:
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - admonition
+  - pymdownx.details
+  - pymdownx.emoji
+  - toc:
+      permalink: true
+
+nav:
+  - Home: index.md
+  - Quick Start: quickstart.md
+  - Configuration: configuration.md
+  - API Reference: api.md
+  - Architecture: architecture.md
+  - Docker: docker.md
+  - Development: development.md
