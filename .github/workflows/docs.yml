@@ -27,6 +27,7 @@ jobs:
         with:
           python-version: "3.12"
           cache: pip
+      - uses: actions/configure-pages@v5
       - run: pip install -r docs/requirements.txt
       - run: mkdocs build
       - uses: actions/upload-pages-artifact@v3

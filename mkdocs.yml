@@ -1,8 +1,8 @@
 site_name: StudFinder
 site_description: Upload a photo and find matching LEGO parts on BrickLink
-site_url: https://danvargic.github.io/StudFinder
-repo_url: https://github.com/danvargic/StudFinder
-repo_name: danvargic/StudFinder
+site_url: https://decafsunrise.github.io/StudFinder
+repo_url: https://github.com/DecafSunrise/StudFinder
+repo_name: DecafSunrise/StudFinder
 
 theme:
   name: material
