@@ -29,7 +29,7 @@ open http://localhost:8000
 
 ## Documentation
 
-Full docs at [danvargic.github.io/StudFinder](https://danvargic.github.io/StudFinder) — includes configuration guide, API reference, architecture overview, and development setup.
+Full docs at [decafsunrise.github.io/StudFinder](https://decafsunrise.github.io/StudFinder) — includes configuration guide, API reference, architecture overview, and development setup.
 
 ## Tech stack
 
