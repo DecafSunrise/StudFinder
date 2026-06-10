@@ -1,10 +1,13 @@
 import asyncio
+import logging
 
 import requests
 from requests_oauthlib import OAuth1
 
 from app.config import settings
 from app.models import BrickLinkPriceGuide
+
+log = logging.getLogger(__name__)
 
 BL_API = "https://api.bricklink.com/api/store/v1"
 
@@ -33,10 +36,20 @@ async def get_price_guide(item_type: str, item_no: str) -> BrickLinkPriceGuide |
     type_map = {"PART": "P", "SET": "S", "MINIFIG": "M", "BOOK": "B", "GEAR": "G"}
     bl_type = type_map.get(item_type, "P")
 
-    data = await asyncio.to_thread(_signed_get, f"/items/{bl_type}/{item_no}/price")
-    if data.get("meta", {}).get("code") != 200:
+    oauth = _oauth()
+    if oauth is None:
+        log.warning("BrickLink API not configured — skipping price guide for %s %s", item_type, item_no)
         return None
 
+    log.info("BrickLink: fetching price guide for %s %s (type=%s)", item_type, item_no, bl_type)
+    data = await asyncio.to_thread(_signed_get, f"/items/{bl_type}/{item_no}/price")
+
+    meta = data.get("meta", {})
+    if meta.get("code") != 200:
+        log.warning("BrickLink price guide returned %d for %s %s: %s", meta.get("code"), item_type, item_no, meta.get("message", ""))
+        return None
+
+    log.info("BrickLink: got price guide for %s %s", item_type, item_no)
     prices = data.get("data", {})
     return BrickLinkPriceGuide(
         new_min_price=_safe_float(prices, "min_price", "new"),
