@@ -1,6 +1,7 @@
 # StudFinder
 
 Upload a photo of a LEGO piece and find matching parts on BrickLink.
+<img width="763" height="796" alt="image" src="https://github.com/user-attachments/assets/fe1286d7-df8a-49de-96f5-1844f8eeaf28" />
 
 Built with Python (FastAPI), Docker, and three APIs: Brickognize (image recognition), Rebrickable (catalog data), and BrickLink (market pricing).
 
